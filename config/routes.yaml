@@ -1,0 +1,3 @@
+index:
+  path: /contact
+  controller: App\Controller\DefaultController::contact
