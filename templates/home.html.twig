@@ -2,4 +2,21 @@
 
 {% block body %}
     {{ text }}
+    <p>
+        id: {{ annonce.id }}<br>
+        title: {{ annonce.title }}<br>
+    </p>
+    <p>
+        <form method="POST">
+            <label>Titre
+                <input name="title" value="{{ annonce.title }}">
+            </label>
+            <label>Description
+                <textarea name="description">
+                    {{ annonce.description }}
+                </textarea>
+            </label>
+            <button>Mettre à jour</button>
+        </form>
+    </p>
 {% endblock %}
