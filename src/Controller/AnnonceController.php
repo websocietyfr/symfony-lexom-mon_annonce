@@ -55,7 +55,7 @@ class AnnonceController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'app_annonce_edit', methods: ['GET', 'POST'])]
+    #[Route('/edit/{id}', name: 'app_annonce_edit', methods: ['GET', 'POST'], priority: 2)]
     public function edit(Request $request, Annonce $annonce, AnnonceRepository $annonceRepository): Response
     {
         $form = $this->createForm(AnnonceType::class, $annonce);
@@ -73,7 +73,7 @@ class AnnonceController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_annonce_delete', methods: ['POST'])]
+    #[Route('/delete/{id}', name: 'app_annonce_delete', methods: ['POST'])]
     public function delete(Request $request, Annonce $annonce, AnnonceRepository $annonceRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$annonce->getId(), $request->request->get('_token'))) {
